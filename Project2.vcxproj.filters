@@ -27,9 +27,6 @@
     <ClCompile Include="bai5.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="matranke.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="cau2.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
@@ -43,9 +40,6 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project1\Project1\ltdt.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="mainSource.cpp">

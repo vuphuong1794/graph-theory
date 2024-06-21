@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Project1\Project1\ltdt.cpp" />
     <ClCompile Include="bai2.cpp" />
     <ClCompile Include="bai4.cpp" />
     <ClCompile Include="bai5.cpp" />
@@ -139,7 +138,6 @@
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainSource.cpp" />
-    <ClCompile Include="matranke.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dothi.h" />
