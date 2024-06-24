@@ -35,13 +35,12 @@ int main()
     if (g->haiphia())
         cout << " Do thi hai phia" << endl;*/
 
-    g->dscToDsk();
     g->dfs(1);
     g->bfs(1);
-    /*int tplt = g->soThanhPhanLienThong();
+    int tplt = g->soThanhPhanLienThong();
     cout << "So thanh phan lien thong la: " << tplt << endl;
-    g->lietKeThanhPhanLienThong();
-    if(g->coChuTrinhDon())
+    //g->lietKeThanhPhanLienThong();
+    /*if (g->coChuTrinhDon())
         cout<<"do thi co chu trinh don");
         //do thi euler va hamilton
     if(g->euler())

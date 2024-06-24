@@ -127,14 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="bai2.cpp" />
-    <ClCompile Include="bai4.cpp" />
-    <ClCompile Include="bai5.cpp" />
-    <ClCompile Include="cau2.cpp" />
-    <ClCompile Include="cau1.cpp" />
     <ClCompile Include="dothi.cpp" />
-    <ClCompile Include="dsk.cpp" />
-    <ClCompile Include="FileName.cpp" />
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainSource.cpp" />

@@ -15,7 +15,10 @@ class DoThi
 private:
     int dinh;
     int canh;
-    vector<vector<int>> MTK;
+    vector<int> ke[1005];
+    bool visited[1005];
+    int truoc[1005];
+    vector<vector<int>> MTK; 
     vector<danhsachcanh> DSC;
     vector<vector<int>> DSK;
 
@@ -23,8 +26,9 @@ public:
     //kiem tra
     bool voHuong();
     bool dayDu();
-    bool vong();
-    //bool haiphia();
+    bool haiphia();
+    bool coChuTrinhDon();
+    bool euler();
 
     //doc
     void readMTK(string path);
@@ -49,7 +53,11 @@ public:
     void dfs(int dinh);
     void bfs(int dinh);
     void dfsUtil(int dinh, vector<bool>& tham);
-    int sotplienthong();
+    void dfsLienthong(int dinh);
+    int soThanhPhanLienThong();
+    void lietKeThanhPhanLienThong();
+    void lietKeCTHamilton();
+
 };
 
 

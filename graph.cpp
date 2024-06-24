@@ -220,28 +220,6 @@ int DoThi::tongBanBacVao(){
 	return tong;
 }
 
-bool DoThi::vong()
-{
-    // 2 điều kiện:
-    //  tất cả các đỉnh phải có bậc bằng 2
-    //  Đồ thị liên thông và chỉ có 1 chu trình
-    if (dinh < 3)
-        return false;
-    for (int u = 1; u <= dinh; u++)
-        if (bac(u) != 2)
-            return false;
-    if (this->soThanhPhanLienThong() != 1)
-        return false;
-    vector<bool> tham(dinh + 1, false);
-    for (int u = 1; u <= soDinh; u++)
-    {
-        if (!tham[u])
-            if (dfsVong(u, -1, tham))
-                return true;
-    }
-    return false;
-}
-
 bool DoThi::dayDu(){
 	for (int i = 1; i <= dinh; i++)
 		for (int j = i + 1; j <= dinh; j++)
@@ -250,6 +228,9 @@ bool DoThi::dayDu(){
 	return true;
 }
 
+bool DoThi::haiphia() {
+	return true;
+}
 
 void DoThi::dfs(int dinh){
 	if (dinh < 1 || dinh > this->dinh) {
@@ -276,6 +257,28 @@ void DoThi::dfsUtil(int dinh, vector<bool>& visited){
 			dfsUtil(x, visited);
 		}
 	}
+}
+
+void DoThi::dfsLienthong(int u) {
+	visited[u] = true;
+	for (int x : ke[u]) {
+		if (!visited[x]) {
+			dfsLienthong(x);
+		}
+	}
+}
+
+int DoThi::soThanhPhanLienThong() {
+	mtkToDsk();
+	int res = 0;
+	memset(visited, false, sizeof(visited));
+	for (int i = 1; i <= dinh; i++) {
+		if (!visited[i]) {
+			++res;
+			dfsLienthong(i);
+		}
+	}
+	return res;
 }
 
 void DoThi::bfs(int dinh){
