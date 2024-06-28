@@ -14,10 +14,12 @@ class DoThi
 {
 private:
     int dinh;
-    int canh;
-    vector<int> ke[1005];
+    int canh=0;
     bool visited[1005];
     int truoc[1005];
+    int color[1001];
+    vector<int> ke[1005];
+    vector<int> adj[1001];
     vector<vector<int>> MTK; 
     vector<danhsachcanh> DSC;
     vector<vector<int>> DSK;
@@ -27,6 +29,7 @@ public:
     bool voHuong();
     bool dayDu();
     bool haiphia();
+    bool bfsHaiPhia(int dinh);
     bool coChuTrinhDon();
     bool euler();
 
@@ -54,8 +57,7 @@ public:
     void bfs(int dinh);
     void dfsUtil(int dinh, vector<bool>& tham);
     void dfsLienthong(int dinh);
-    int soThanhPhanLienThong();
-    void lietKeThanhPhanLienThong();
+    void soThanhPhanLienThong();
     void lietKeCTHamilton();
 
 };

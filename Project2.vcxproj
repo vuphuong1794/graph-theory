@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="dothi.txt" />
+    <Text Include="dothihaiphia.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

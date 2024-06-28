@@ -9,6 +9,7 @@ int main()
 {
     DoThi* g = new DoThi();
     g->readMTK("dothi.txt");
+    //g->readMTK("dothihaiphia.txt");
     g->inDSC();
     g->inDSK();
     if (g->voHuong())
@@ -31,15 +32,13 @@ int main()
     if (g->dayDu())
         cout << "Do thi day du" << endl;
     /*if (g->vong())
-        cout << " Do thi vong" << endl;
+        cout << " Do thi vong" << endl;*/
     if (g->haiphia())
-        cout << " Do thi hai phia" << endl;*/
+        cout << " Do thi hai phia" << endl;
 
     g->dfs(1);
     g->bfs(1);
-    int tplt = g->soThanhPhanLienThong();
-    cout << "So thanh phan lien thong la: " << tplt << endl;
-    //g->lietKeThanhPhanLienThong();
+    g->soThanhPhanLienThong();
     /*if (g->coChuTrinhDon())
         cout<<"do thi co chu trinh don");
         //do thi euler va hamilton

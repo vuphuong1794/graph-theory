@@ -21,10 +21,9 @@ void DoThi::readMTK(string path){
 		return;
 	}
 	fileInput >> dinh;
-	MTK.resize(dinh + 1);
+	MTK.resize(dinh + 1, vector<int>(dinh + 1, 0));
 	for (int i = 1; i <= dinh; i++)
 	{
-		MTK[i].resize(dinh + 1);
 		for (int j = 1; j <= dinh; j++)
 		{
 			fileInput >> MTK[i][j];
@@ -229,6 +228,15 @@ bool DoThi::dayDu(){
 }
 
 bool DoThi::haiphia() {
+	mtkToDsk();
+	memset(color, -1, sizeof(color));
+	for (int i = 1; i <= dinh; i++) {
+		if (color[i] == -1) {
+			if (!bfsHaiPhia(i)) {
+				return false;
+			}
+		}
+	}
 	return true;
 }
 
@@ -260,26 +268,35 @@ void DoThi::dfsUtil(int dinh, vector<bool>& visited){
 }
 
 void DoThi::dfsLienthong(int u) {
+	cout << u << " ";
 	visited[u] = true;
-	for (int x : ke[u]) {
+	for (int x : DSK[u]) {
 		if (!visited[x]) {
 			dfsLienthong(x);
 		}
 	}
 }
 
-int DoThi::soThanhPhanLienThong() {
+void DoThi::soThanhPhanLienThong() {
 	mtkToDsk();
 	int res = 0;
 	memset(visited, false, sizeof(visited));
 	for (int i = 1; i <= dinh; i++) {
 		if (!visited[i]) {
-			++res;
+			res++;
+			cout << "cac dinh thuoc thanh phan lien thong thu: " << res << " :\n";
 			dfsLienthong(i);
+			cout << endl;
 		}
 	}
-	return res;
+	//liet ke thanh phan lien thong
+	if (res == 1) {
+		cout << "Do thi lien thong!\n";
+	}
+	else cout << "Do thi khong lien thong!\n";
+	cout << "so thanh phan lien thong: " << res << endl;
 }
+
 
 void DoThi::bfs(int dinh){
     queue<int> q;
@@ -301,4 +318,20 @@ void DoThi::bfs(int dinh){
 	cout << endl;
 }
 
+bool DoThi::bfsHaiPhia(int u) {
+	//0: red, 1: blue
+	queue<int> q;
+	q.push(u);
+	color[u] = 0; //0: red
+	while (!q.empty()) {
+		int v = q.front(); q.pop();
+		for (int x : ke[v]) {
+			if (color[x] == -1) {
+				color[x] = 1 - color[v];
+			}
+			else if (color[x] == color[v]) return false;
+		}
+	}
+	return true;
+}
 

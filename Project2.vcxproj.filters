@@ -40,5 +40,8 @@
     <Text Include="dothi.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="dothihaiphia.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
