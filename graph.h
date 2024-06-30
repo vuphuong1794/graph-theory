@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <stack>
 using namespace std;
 
 struct danhsachcanh {
@@ -10,28 +11,37 @@ struct danhsachcanh {
     int cuoi;
 };
 
+struct Canh {
+    int x, y, w;
+};
+
 class DoThi
 {
 private:
     int dinh;
     int canh=0;
+    int stplt = 0;
     bool visited[1005];
     int truoc[1005];
     int color[1001];
+    int degree[1001];
+    bool used[1001];
     vector<int> ke[1005];
-    vector<int> adj[1001];
     vector<vector<int>> MTK; 
     vector<danhsachcanh> DSC;
+    vector<Canh> DSC_w;
     vector<vector<int>> DSK;
-
+    vector<pair<int, int>> adj[1001];
 public:
     //kiem tra
     bool voHuong();
     bool dayDu();
     bool haiphia();
+    bool vong();
     bool bfsHaiPhia(int dinh);
-    bool coChuTrinhDon();
-    bool euler();
+    bool dfsVong(int dinh, int u, vector<bool>& visited);
+    bool coChutTrinhEuler();
+    bool coChutTrinhHamliton();
 
     //doc
     void readMTK(string path);
@@ -45,6 +55,7 @@ public:
     void mtkToDsc();
     void mtkToDsk();
     void dscToDsk();
+    void dscToMtk();
 
     //tinh toan
     int bac(int dinh);
@@ -58,8 +69,10 @@ public:
     void dfsUtil(int dinh, vector<bool>& tham);
     void dfsLienthong(int dinh);
     void soThanhPhanLienThong();
-    void lietKeCTHamilton();
-
+    void euler(int v);
+    void Hamilton(int dinh);
+    bool HamiltonUtil(int v, vector<int>& path, vector<bool>& visited);
+    void prim(int dinh);
 };
 
 

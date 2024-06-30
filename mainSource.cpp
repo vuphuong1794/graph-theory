@@ -8,8 +8,11 @@ using namespace std;
 int main()
 {
     DoThi* g = new DoThi();
-    g->readMTK("dothi.txt");
+    //g->readMTK("dothi.txt");
     //g->readMTK("dothihaiphia.txt");
+    //g->readMTK("dothiEuler.txt");
+    //g->readMTK("dsctomtk.txt");
+    //g->readDSC("dothidanhsachcanh.txt");
     g->inDSC();
     g->inDSK();
     if (g->voHuong())
@@ -31,19 +34,20 @@ int main()
     
     if (g->dayDu())
         cout << "Do thi day du" << endl;
-    /*if (g->vong())
-        cout << " Do thi vong" << endl;*/
+    if (g->vong())
+        cout << " Do thi vong" << endl;
     if (g->haiphia())
         cout << " Do thi hai phia" << endl;
 
     g->dfs(1);
     g->bfs(1);
     g->soThanhPhanLienThong();
-    /*if (g->coChuTrinhDon())
-        cout<<"do thi co chu trinh don");
-        //do thi euler va hamilton
-    if(g->euler())
-       g->lietkeCTEuler();
-    g->lietkeCTHamilton();
-    */
+    
+    if (g->coChutTrinhEuler()) {
+        g->euler(1);
+    }
+    if (g->coChutTrinhHamliton()) {
+        g->Hamilton(1);
+    }
+    g->prim(4);
 }

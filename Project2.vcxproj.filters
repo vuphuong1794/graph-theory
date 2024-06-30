@@ -43,5 +43,14 @@
     <Text Include="dothihaiphia.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="dothiEuler.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="dothidanhsachcanh.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="dsctomtk.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
