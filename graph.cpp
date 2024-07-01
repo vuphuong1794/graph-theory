@@ -57,7 +57,7 @@ void DoThi::readDSC(string duongDan) {
 	for (int i = 0; i < canh; i++) {
 		int x, y, w;
 		fileInput >> x >> y >> w;
-
+		DSC_w.push_back({ x, y, w });
 		// Thêm cạnh vào danh sách cạnh
 		DSC.push_back({ x, y });
 
@@ -531,3 +531,59 @@ void DoThi::prim(int start) {
 		cout << e.x << " - " << e.y << " : " << e.w << endl;
 	}
 }
+
+void DoThi::make_set() {
+	for (int i = 1; i <= dinh; i++) {
+		parent[i] = i;
+		sz[i] = 1;
+	}
+}
+
+int DoThi::find(int v) {
+	if (v == parent[v])
+		return v;
+	return parent[v] = find(parent[v]);
+}
+
+bool DoThi::Union(int a, int b) {
+	a = find(a);
+	b = find(b);
+	if (a == b)
+		return false;
+	if (sz[a] < sz[b])
+		swap(a, b);
+	parent[b] = a;
+	sz[a] += sz[b];
+	return true;
+}
+
+void DoThi::kruskal() {
+	vector<Canh> MST;
+	int d = 0;
+
+	sort(DSC_w.begin(), DSC_w.end(), [](Canh a, Canh b) {
+		return a.w < b.w;
+		});
+
+	make_set();
+
+	for (const Canh& e : DSC_w) {
+		if (MST.size() == dinh - 1)
+			break;
+		if (Union(e.x, e.y)) {
+			MST.push_back(e);
+			d += e.w;
+		}
+	}
+
+	if (MST.size() != dinh - 1) {
+		cout << "Do thi khong lien thong\n";
+	}
+	else {
+		cout << "MST: " << d << endl;
+		for (const Canh& e : MST) {
+			cout << e.x << " - " << e.y << " : " << e.w << endl;
+		}
+	}
+}
+

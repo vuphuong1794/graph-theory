@@ -52,5 +52,8 @@
     <Text Include="dsctomtk.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="kruskal.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

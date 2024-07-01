@@ -26,6 +26,7 @@ private:
     int color[1001];
     int degree[1001];
     bool used[1001];
+    int parent[1001], sz[1001];
     vector<int> ke[1005];
     vector<vector<int>> MTK; 
     vector<danhsachcanh> DSC;
@@ -73,6 +74,11 @@ public:
     void Hamilton(int dinh);
     bool HamiltonUtil(int v, vector<int>& path, vector<bool>& visited);
     void prim(int dinh);
+    void make_set();
+    int find(int v);
+    bool cmp(Canh a, Canh b);
+    bool Union(int a, int b);
+    void kruskal();
 };
 
 

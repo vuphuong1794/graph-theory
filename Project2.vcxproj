@@ -142,6 +142,7 @@
     <Text Include="dothiEuler.txt" />
     <Text Include="dothihaiphia.txt" />
     <Text Include="dsctomtk.txt" />
+    <Text Include="kruskal.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
