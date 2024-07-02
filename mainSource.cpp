@@ -19,6 +19,9 @@ int main() {
         cout << " - so thanh phan lien thong, liet ke" << endl;
         cout << "(2) Prim" << endl;
         cout << "(3) Kruskal" << endl;
+        cout << "(4) dijkstra" << endl;
+        cout << "(5) bellmanford" << endl;
+        cout << "(6) fulkerson" << endl;
         cout << "-------------------------------------------------\n";
         cout << "nhap lua chon: ";
         cin >> choice;
@@ -71,6 +74,11 @@ int main() {
             g->readDSC("kruskal.txt");
             g->kruskal();
             break;
+        case 4:
+            g->readDSC("dijkstra.txt");
+            g->dijkstra(1);
+            break;
+        
         default:
             cout << "nhap khong hop le!" << endl;
             break;

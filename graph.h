@@ -73,12 +73,17 @@ public:
     void euler(int v);
     void Hamilton(int dinh);
     bool HamiltonUtil(int v, vector<int>& path, vector<bool>& visited);
+    
+    //bai  toan
     void prim(int dinh);
     void make_set();
     int find(int v);
     bool cmp(Canh a, Canh b);
     bool Union(int a, int b);
     void kruskal();
+    void dijkstra(int dinh);
+    void bellmanFord(int dinh);
+
 };
 
 

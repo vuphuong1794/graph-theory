@@ -137,6 +137,7 @@
     <ClInclude Include="graph.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="dijkstra.txt" />
     <Text Include="dothi.txt" />
     <Text Include="dothidanhsachcanh.txt" />
     <Text Include="dothiEuler.txt" />

@@ -37,37 +37,35 @@ void DoThi::readMTK(string path){
 
 void DoThi::readDSC(string duongDan) {
 	ifstream fileInput(duongDan);
-
 	if (!fileInput.is_open()) {
 		cout << "Khong the mo file: " << duongDan << endl;
 		return;
 	}
 
+	// Đọc số đỉnh và số cạnh trước
+	fileInput >> dinh >> canh;
+
 	// Xóa dữ liệu cũ
 	DSC.clear();
+	DSC_w.clear();
 	for (int i = 0; i <= dinh; ++i) {
 		adj[i].clear();
 	}
 	memset(used, false, sizeof(used));
-
-	// Đọc số đỉnh và số cạnh
-	fileInput >> dinh >> canh;
 
 	// Đọc thông tin từng cạnh
 	for (int i = 0; i < canh; i++) {
 		int x, y, w;
 		fileInput >> x >> y >> w;
 		DSC_w.push_back({ x, y, w });
-		// Thêm cạnh vào danh sách cạnh
 		DSC.push_back({ x, y });
-
-		// Thêm cạnh vào danh sách kề
 		adj[x].push_back({ y, w });
 		adj[y].push_back({ x, w });  // Nếu là đồ thị vô hướng
 	}
 
 	fileInput.close();
 }
+
 const void DoThi::inDSC(){
 	cout << "Danh sach canh: " << endl;
 	for (int i = 1; i <= dinh; i++)
@@ -587,3 +585,30 @@ void DoThi::kruskal() {
 	}
 }
 
+void DoThi::dijkstra(int s) {
+	//mang luu tru khoang cach duong di
+	vector<long long>d(dinh + 1, 1e9);
+	d[s] = 0;
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> Q;
+	//{khoang canh, dinh}
+	Q.push({ 0, s });
+	while (!Q.empty()) {
+		//chon ra dinh co khoang cach tu ss nho nhat
+		pair<int, int> top = Q.top(); Q.pop();
+		int u = top.second;
+		int kc = top.first;
+		if (kc > d[u]) continue;
+		for (auto it : adj[u]) {
+			int v = it.first;
+			int w = it.second;
+			if (d[v] > d[u] + w) {
+				d[v] = d[u] + w;
+				Q.push({ d[v],v });
+
+			}
+		}
+	}
+	for (int i = 1; i <= dinh; i++) {
+		cout << d[i] << " ";
+	}
+}

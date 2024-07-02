@@ -55,5 +55,8 @@
     <Text Include="kruskal.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="dijkstra.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
