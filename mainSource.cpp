@@ -78,7 +78,12 @@ int main() {
             g->readDSC("dijkstra.txt");
             g->dijkstra(1);
             break;
-        
+        case 5: 
+            cout << "tinh nang dang trong giai doan phat trien!\n";
+            break;
+        case 6: 
+            cout << "tinh nang dang trong giai doan phat trien!\n";
+            break;
         default:
             cout << "nhap khong hop le!" << endl;
             break;
